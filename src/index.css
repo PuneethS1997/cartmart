@@ -1,0 +1,33 @@
+@import "tailwindcss/preflight";
+@import "tailwindcss/theme";
+@import "tailwindcss/utilities";
+
+:root {
+  --bg: #0b0b0b;
+  --card: #141414;
+  --text: #f5f5f5;
+  --muted: #9ca3af;
+  --accent: #d4af37;
+}
+
+html, body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.icon-btn {
+  background: rgba(255,255,255,0.1);
+  padding: 8px;
+  border-radius: 999px;
+  color: white;
+  transition: 0.2s;
+}
+.icon-btn:hover {
+  background: rgba(255,255,255,0.25);
+}
