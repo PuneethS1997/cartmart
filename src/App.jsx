@@ -29,7 +29,7 @@ import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import Category from "./pages/Category";
 import Product from "./pages/Product";
-
+import ProductListing from "./pages/ProductListing";
 export default function App() {
   return (
     <>
@@ -40,6 +40,8 @@ export default function App() {
         <Route path="/category/:name" element={<Category />} />
 
         <Route path="/product/:id" element={<Product />} />
+        <Route path="/products" element={<ProductListing />} />
+
       </Routes>
     </>
   );

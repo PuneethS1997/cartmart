@@ -8,12 +8,21 @@ import TrendingSlider from "../components/home/TrendingSlider";
 
 import ProductCard from "../components/product/ProductCard";
 import FlashDeals from "../components/home/FlashDeals";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
 
+  //   useEffect(() => {
+  //     getProducts().then((res) => setProducts(res.data));
+  //     console.log("PRODUCTS:", res.data);
+
+  //   }, []);
   useEffect(() => {
-    getProducts().then((res) => setProducts(res.data));
+    getProducts().then((data) => {
+    //   console.log("PRODUCTS:", data);
+      setProducts(data); // or setDeals
+    });
   }, []);
 
   const trendingProducts = products?.filter((p) => p.isTrending) || [];
@@ -34,9 +43,15 @@ export default function Home() {
         <h2 className="text-2xl mb-10 font-light tracking-wide">
           Featured Collection
         </h2>
+        <Link
+          to="/products"
+          className="text-sm font-semibold text-[var(--accent)] hover:underline"
+        >
+          View All →
+        </Link>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {trendingProducts.map((p) => (
+          {products.map((p) => (
             <ProductCard key={p.id} product={p} />
           ))}
         </div>

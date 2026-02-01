@@ -9,9 +9,13 @@ export default function FlashDeals() {
 
   useEffect(() => {
     getProducts().then((data) => {
-      const flash = data.filter(
-        (p) => p.isFlashDeal || p.discount
-      );
+        // console.log("PRODUCTS:", data);
+
+    //   const flash = data.filter(
+    //     (p) => p.isFlashDeal || p.discount
+    //   );
+    const flash = data.slice(0, 8);
+
       setDeals(flash);
     });
   }, []);
